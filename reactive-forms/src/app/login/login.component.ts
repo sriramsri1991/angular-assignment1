@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   loginForm;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private route: Router) {
     this.loginForm = this.formBuilder.group({
       userName: '',
       password: ''
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm) {
     console.log('User logged in');
     console.log(loginForm);
+    this.route.navigate(['welcome', loginForm.userName]);
   }
 
 }
