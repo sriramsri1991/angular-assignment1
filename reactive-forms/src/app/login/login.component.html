@@ -1,4 +1,5 @@
 
+
 <h2>Login Form</h2>
 <div class="container">
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
@@ -6,14 +7,14 @@
     <label for="UserName">
       UserName:
     </label>
-    <input id="UserName" type="text" class="form-control" formControlName="userName">
+    <input id="UserName" type="text" class="form-control" formControlName="userName" placeholder="username" required="true" minlength="3">
   </div>
 
   <div class="form-group">
     <label for="Password">
       Password:
     </label>
-    <input id="Password" type="text" class="form-control" formControlName="password">
+    <input id="Password" type="text" class="form-control" formControlName="password" placeholder="password" required="true" minlength="6">
   </div>
 
   <button class="btn btn-default" type="submit">Login</button>
