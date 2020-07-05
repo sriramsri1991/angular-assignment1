@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private route: Router) {
     this.loginForm = this.formBuilder.group({
-      userName: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
@@ -25,7 +25,15 @@ export class LoginComponent implements OnInit {
   onSubmit(loginForm) {
     console.log('User logged in');
     console.log(loginForm);
-    this.route.navigate(['welcome', loginForm.userName]);
+    this.route.navigate(['welcome', loginForm.username]);
+  }
+
+  get username() {
+    return this.loginForm.get('username');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 
 }
